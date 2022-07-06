@@ -1,35 +1,36 @@
-NAME 		=	megaphone
-OBJ_DIR		=	obj/
-SRCS_DIR	=	src/
-SRCS		=	megaphone.cpp
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rohoarau <marvin@42lausanne.ch>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/06 16:52:43 by rohoarau          #+#    #+#              #
+#    Updated: 2022/07/06 16:53:32 by rohoarau         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
-
-CXXFLAGS = -std=c++98 -pedantic -Wall -Wextra -Werror
-DEBUGGING = -g -O0
-CXX = c++
-RM = rm -rf
-AR = ar rc
-
-#98: CXX = g++-11
-#98: all
+NAME			=	megaphone
+SOURCE			=	megaphone.cpp
+CXX				= 	c++
+OBJECT			=	$(SOURCE:.cpp=.o)
+CXXFLAGS		= 	-Wall -Wextra -Werror -std=c++98
+RM				=	rm -rf
 
 all: $(NAME)
 
-$(OBJ_DIR)%.o : $(SRCS_DIR)%.cpp
-		@mkdir -p $(OBJ_DIR)
-		$(CXX) -c $(CXXFLAGS) $(DEBUGGING) $< -o $@
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-		$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJECT)
+	$(CXX) $(CXXFLAGS) $(OBJECT) -o $(NAME)
 
 clean:
-		$(RM) $(OBJ_DIR)
-		$(RM) $(OBJS)
+	$(RM) $(OBJECT)
 
 fclean: clean
-		$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean re fclean
+.PHONY: all clean fclean re
