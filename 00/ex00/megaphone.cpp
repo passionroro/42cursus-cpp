@@ -1,11 +1,5 @@
 #include <iostream>
-
-char	ft_toupper(char c)
-{
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
-}
+#include <cctype>
 
 int	main(int argc, char **argv)
 {
@@ -22,7 +16,7 @@ int	main(int argc, char **argv)
 	{
 		j = -1;
 		while (argv[i][++j])
-			std::cout << ft_toupper(argv[i][j]);
+			std::cout << toupper(argv[i][j]);
 	}
 	std::cout << std::endl;
 	return (0);
