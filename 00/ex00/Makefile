@@ -1,7 +1,7 @@
-NAME 		=	class
+NAME 		=	megaphone
 OBJ_DIR		=	obj/
 SRCS_DIR	=	src/
-SRCS		=	main.cpp Sample.class.cpp
+SRCS		=	megaphone.cpp
 
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
@@ -11,8 +11,8 @@ CXX = c++
 RM = rm -rf
 AR = ar rc
 
-##98: CXX = g++-11
-##98: all
+#98: CXX = g++-11
+#98: all
 
 all: $(NAME)
 
