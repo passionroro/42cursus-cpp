@@ -6,13 +6,10 @@
 class Sample
 {
 	public:
-		Sample(int value);
+		int	foo;
+		Sample();
 		~Sample();
-		int	getValue() const;
-		int	compare(Sample *other) const;
-
-	private:
-		int	_d;
+//		void	bar() const;
 };
 
 #endif
